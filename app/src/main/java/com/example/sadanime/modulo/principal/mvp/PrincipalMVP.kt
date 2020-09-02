@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.principal.mvp
+package com.example.sadanime.modulo.principal.mvp
 
 interface PrincipalMVP {
 

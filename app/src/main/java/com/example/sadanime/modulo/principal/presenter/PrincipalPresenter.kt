@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.principal.presenter
+package com.example.sadanime.modulo.principal.presenter
 
 class PrincipalPresenter {
 }

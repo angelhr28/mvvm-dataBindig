@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.principal.model
+package com.example.sadanime.modulo.principal.model
 
 class PrincipalModel {
 }

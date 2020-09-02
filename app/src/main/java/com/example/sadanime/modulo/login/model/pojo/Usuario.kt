@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.login.model.pojo
+package com.example.sadanime.modulo.login.model.pojo
 
 data class Usuario (
     var idUser    : String? = null,

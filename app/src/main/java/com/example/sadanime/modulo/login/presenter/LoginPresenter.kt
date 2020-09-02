@@ -1,8 +1,8 @@
-package com.example.platform_univ.modulo.login.presenter
+package com.example.sadanime.modulo.login.presenter
 
-import com.example.platform_univ.modulo.login.model.LoginModel
-import com.example.platform_univ.modulo.login.mvp.LoginMVP
-import com.example.platform_univ.root.preferences
+import com.example.sadanime.modulo.login.model.LoginModel
+import com.example.sadanime.modulo.login.mvp.LoginMVP
+import com.example.sadanime.root.preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -42,11 +42,11 @@ class LoginPresenter( private val view: LoginMVP.View ): LoginMVP.Presenter {
                                     override fun onDataChange(result: DataSnapshot) {
                                         if(result.exists()){
                                             preferences.apply {
-                                                this.nombre   = result.child("nombres").getValue().toString()
-                                                this.phone    = result.child("phone").getValue().toString()
-                                                this.correo   = result.child("correo").getValue().toString()
-                                                this.apellido = result.child("apellidos").getValue().toString()
-                                                this.password = result.child("password").getValue().toString()
+                                                this.nombre   = result.child("nombres").value.toString()
+                                                this.phone    = result.child("phone").value.toString()
+                                                this.correo   = result.child("correo").value.toString()
+                                                this.apellido = result.child("apellidos").value.toString()
+                                                this.password = result.child("password").value.toString()
                                             }
                                         }
                                         view.logInSuccess()

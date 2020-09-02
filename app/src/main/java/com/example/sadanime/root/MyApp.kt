@@ -1,9 +1,9 @@
-package com.example.platform_univ.root
+package com.example.sadanime.root
 
 import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.platform_univ.helper.application.MySharedPreferences
+import com.example.sadanime.helper.application.MySharedPreferences
 
 val preferences       : MySharedPreferences by lazy { MyApp.prefs!! }
 lateinit var ctx      : Context

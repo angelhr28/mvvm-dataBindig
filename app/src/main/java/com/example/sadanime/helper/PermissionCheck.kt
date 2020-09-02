@@ -1,4 +1,4 @@
-package com.example.platform_univ.helper
+package com.example.sadanime.helper
 
 import android.Manifest
 import android.app.Activity

@@ -1,13 +1,13 @@
-package com.example.platform_univ.modulo.principal.view
+package com.example.sadanime.modulo.principal.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import com.example.platform_univ.R
-import com.example.platform_univ.modulo.login.view.LoginActivity
-import com.example.platform_univ.root.preferences
+import com.example.sadanime.R
+import com.example.sadanime.modulo.login.view.LoginActivity
+import com.example.sadanime.root.preferences
 import kotlinx.android.synthetic.main.activity_perfil.*
 import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
 
@@ -42,7 +42,4 @@ class PrincipalActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    
-
 }

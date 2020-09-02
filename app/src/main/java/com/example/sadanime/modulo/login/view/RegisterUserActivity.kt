@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.login.view
+package com.example.sadanime.modulo.login.view
 
 import android.app.Activity
 import android.content.Intent
@@ -10,9 +10,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.platform_univ.R
-import com.example.platform_univ.modulo.login.mvp.RegisterMVP
-import com.example.platform_univ.modulo.login.presenter.RegisterPresenter
+import com.example.sadanime.R
+import com.example.sadanime.modulo.login.mvp.RegisterMVP
+import com.example.sadanime.modulo.login.presenter.RegisterPresenter
+import com.example.sadanime.modulo.principal.view.PrincipalActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -95,17 +96,19 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
 //        Log.e(TAG,"meraa :: ${getExtension(uriImage)}")
         val ref = strorageRefP.child("${System.currentTimeMillis()}_${(0..10000).random()}.jpeg"  )
 
-        ref.putFile(uriImage)
-            .addOnFailureListener {
-                Log.e(TAG, "fileUploader: error update ${it.message}" )
-            }
-            .addOnSuccessListener { taskSnapshot -> // Get a URL to the uploaded content
-                val uri = taskSnapshot.storage.downloadUrl
-                while (!uri.isComplete){} //// todos se corto
-                val url = uri.result
-                Log.e(TAG,"url $url")
-                showToask("se subio revisa prro :v")
-            }
+        uriImage?.let {
+            ref.putFile(it)
+                .addOnFailureListener {
+                    Log.e(TAG, "fileUploader: error update ${it.message}" )
+                }
+                .addOnSuccessListener { taskSnapshot -> // Get a URL to the uploaded content
+                    val uri = taskSnapshot.storage.downloadUrl
+                    while (!uri.isComplete){} //// todos se corto
+                    val url = uri.result
+                    Log.e(TAG,"url $url")
+                    showToask("se subio revisa prro :v")
+                }
+        }
     }
 
     private fun fileChooser(){
@@ -140,11 +143,9 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
 
     override fun registerSuccess() {
         fileUploader()
-
-
-//        val intent = Intent(this,  PrincipalActivity::class.java)
-//        startActivity(intent)
-//        finish()
+        val intent = Intent(this,  PrincipalActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun registerError() {

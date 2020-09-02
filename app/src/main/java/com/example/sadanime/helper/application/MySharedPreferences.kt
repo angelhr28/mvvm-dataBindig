@@ -1,13 +1,10 @@
-package com.example.platform_univ.helper.application
+package com.example.sadanime.helper.application
 
 import android.content.Context
 
-/**
- * Created by Sebastian on 21/02/2018.
- */
 class MySharedPreferences(context: Context) {
 
-    private val fileName = "smiledu_preferences"
+    private val fileName = "SadAnime_preferences"
 
     private val prefs = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
 

@@ -1,22 +1,24 @@
-package com.example.platform_univ.modulo.login.view
+package com.example.sadanime.modulo.login.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.platform_univ.R
-import com.example.platform_univ.modulo.login.mvp.LoginMVP
-import com.example.platform_univ.modulo.login.presenter.LoginPresenter
-import com.example.platform_univ.modulo.principal.view.PrincipalActivity
+import com.example.sadanime.R
+import com.example.sadanime.modulo.login.mvp.LoginMVP
+import com.example.sadanime.modulo.login.presenter.LoginPresenter
+import com.example.sadanime.modulo.principal.view.PrincipalActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
 
 class LoginActivity : AppCompatActivity(), LoginMVP.View {
 
+    private val TAG = this::class.java.name
     private lateinit var contEdtUser   : TextInputLayout
     private lateinit var contEdtPass   : TextInputLayout
     private lateinit var edtUser       : TextInputEditText
@@ -27,7 +29,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         contEdtUser   = cont_edt_user
         edtUser       = edt_user
@@ -39,13 +41,15 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
         presenter = LoginPresenter(this)
 
         btnLogin.setOnClickListener {
+            Log.e(TAG, "onCreate: llegooooooooooooooooo al click LOGIN" )
             presenter.logIn(edtUser.text?.trim().toString(), edtPass.text?.trim().toString())
         }
 
         lblCreateUser.setOnClickListener {
+            Log.e(TAG, "onCreate: llegooooooooooooooooo al click" )
             val intent = Intent(this,  RegisterUserActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
         }
     }
 
@@ -71,11 +75,11 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
 
     override fun onStart() {
         super.onStart()
-        if (FIREBASE_AUTH.currentUser != null){
-            val intent = Intent(this,  PrincipalActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        if (FIREBASE_AUTH.currentUser != null){
+//            val intent = Intent(this,  PrincipalActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
         
     }
 

@@ -1,10 +1,10 @@
-package com.example.platform_univ.modulo.login.presenter
+package com.example.sadanime.modulo.login.presenter
 
 import android.util.Log
-import com.example.platform_univ.modulo.login.model.RegisterModel
-import com.example.platform_univ.modulo.login.model.pojo.Usuario
-import com.example.platform_univ.modulo.login.mvp.RegisterMVP
-import com.example.platform_univ.root.preferences
+import com.example.sadanime.modulo.login.model.RegisterModel
+import com.example.sadanime.modulo.login.model.pojo.Usuario
+import com.example.sadanime.modulo.login.mvp.RegisterMVP
+import com.example.sadanime.root.preferences
 import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
 import pe.softhy.smiledu.helper.application.Constants.FIREBASE_DB
 
@@ -18,12 +18,13 @@ class RegisterPresenter(private val view: RegisterMVP.View) : RegisterMVP.Presen
         view.showProgres()
         model.registerUser(email, pass)
             .addOnFailureListener { Log.e(TAG, "registerUser: FALLO EN EL REGISTRO  ${it.message}" ) }
-            .addOnCompleteListener {
-            if(it.isSuccessful){
+            .addOnCompleteListener { task ->
+                if(task.isSuccessful){
                 val id = FIREBASE_AUTH.currentUser?.uid ?: "0"
                 val user = Usuario(id,name, ape, phone, email, pass)
                 dataBaseUser.child(id).setValue(user).addOnCompleteListener {
                     if(it.isSuccessful) {
+                        Log.e(TAG, "registerUser: $name --- $phone  --- $email --- $ape --- $pass" )
                         preferences.apply {
                             this.nombre   = name
                             this.phone    = phone

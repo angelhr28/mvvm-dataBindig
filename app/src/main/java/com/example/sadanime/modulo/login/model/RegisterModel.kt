@@ -1,6 +1,6 @@
-package com.example.platform_univ.modulo.login.model
+package com.example.sadanime.modulo.login.model
 
-import com.example.platform_univ.modulo.login.mvp.RegisterMVP
+import com.example.sadanime.modulo.login.mvp.RegisterMVP
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import pe.softhy.smiledu.helper.application.Constants

@@ -1,4 +1,4 @@
-package com.example.platform_univ.modulo.login.mvp
+package com.example.sadanime.modulo.login.mvp
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
