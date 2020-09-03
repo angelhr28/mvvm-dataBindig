@@ -4,7 +4,7 @@ import com.example.sadanime.modulo.login.mvp.LoginMVP
 import com.example.sadanime.modulo.login.presenter.LoginPresenter
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 
 class LoginModel(private val presenter: LoginPresenter) : LoginMVP.Model {
 

@@ -11,10 +11,11 @@ import com.example.sadanime.R
 import com.example.sadanime.modulo.login.mvp.LoginMVP
 import com.example.sadanime.modulo.login.presenter.LoginPresenter
 import com.example.sadanime.modulo.principal.view.PrincipalActivity
+import com.example.sadanime.root.UnsafeOkHttpClient
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_login.*
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 
 class LoginActivity : AppCompatActivity(), LoginMVP.View {
 
@@ -28,6 +29,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
     private lateinit var presenter     : LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        UnsafeOkHttpClient.initializeSSLContext(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -75,11 +77,11 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
 
     override fun onStart() {
         super.onStart()
-//        if (FIREBASE_AUTH.currentUser != null){
-//            val intent = Intent(this,  PrincipalActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        if (FIREBASE_AUTH.currentUser != null){
+            val intent = Intent(this,  PrincipalActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         
     }
 

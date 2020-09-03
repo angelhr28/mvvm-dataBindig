@@ -1,7 +1,7 @@
 package com.example.sadanime.helper
 
 import com.google.firebase.auth.FirebaseAuth
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 
 class Auth private constructor() {
 

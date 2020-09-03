@@ -6,8 +6,8 @@ import com.example.sadanime.root.preferences
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_DB
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.helper.application.Constants.FIREBASE_DB
 
 class LoginPresenter( private val view: LoginMVP.View ): LoginMVP.Presenter {
 

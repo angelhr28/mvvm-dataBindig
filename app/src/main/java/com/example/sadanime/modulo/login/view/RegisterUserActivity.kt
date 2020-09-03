@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_register_user.*
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_STORAGE
+import com.example.sadanime.helper.application.Constants.FIREBASE_STORAGE
 
 
 class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {

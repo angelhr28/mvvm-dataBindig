@@ -5,8 +5,8 @@ import com.example.sadanime.modulo.login.model.RegisterModel
 import com.example.sadanime.modulo.login.model.pojo.Usuario
 import com.example.sadanime.modulo.login.mvp.RegisterMVP
 import com.example.sadanime.root.preferences
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_AUTH
-import pe.softhy.smiledu.helper.application.Constants.FIREBASE_DB
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.helper.application.Constants.FIREBASE_DB
 
 class RegisterPresenter(private val view: RegisterMVP.View) : RegisterMVP.Presenter {
 

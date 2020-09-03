@@ -83,6 +83,8 @@ android {
         implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
         implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
 
+        implementation 'org.jsoup:jsoup:1.11.3'
+
     }
 }
 
