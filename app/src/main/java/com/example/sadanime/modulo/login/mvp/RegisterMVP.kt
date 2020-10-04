@@ -14,7 +14,7 @@ interface RegisterMVP{
     }
 
     interface Presenter{
-        fun registerUser(name: String, pass: String, ape: String, phone: String, email: String)
+        fun registerUser(name: String, pass: String, email: String)
     }
 
     interface Model{

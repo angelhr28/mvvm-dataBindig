@@ -26,13 +26,9 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
 
     private val TAG  = this.javaClass.toString()
     private lateinit var contEdtName  : TextInputLayout
-    private lateinit var contEdtApe   : TextInputLayout
-    private lateinit var contEdtPhone : TextInputLayout
     private lateinit var contEdtEmail : TextInputLayout
     private lateinit var contEdtPass  : TextInputLayout
     private lateinit var edtName      : TextInputEditText
-    private lateinit var edtApe       : TextInputEditText
-    private lateinit var edtPhone     : TextInputEditText
     private lateinit var edtEmail     : TextInputEditText
     private lateinit var edtPass      : TextInputEditText
     private lateinit var btnImag      : FloatingActionButton
@@ -48,13 +44,9 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
         setContentView(R.layout.activity_register_user)
 
         contEdtName  = cont_edt_name_user
-        contEdtApe   = cont_edt_ape_user
-        contEdtPhone = cont_edt_phone_user
         contEdtEmail = cont_edt_email_user
         contEdtPass  = cont_edt_pass_user
         edtName      = edt_name_user
-        edtApe       = edt_ape_user
-        edtPhone     = edt_phone_user
         edtEmail     = edt_email_user
         edtPass      = edt_pass_user
         btnRegist    = btn_register
@@ -66,10 +58,8 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
         btnRegist.setOnClickListener {
             val name   = edtName.text?.trim().toString()
             val pass   = edtPass.text?.trim().toString()
-            val ape    = edtApe.text?.trim().toString()
-            val phone  = edtPhone.text?.trim().toString()
             val email  = edtEmail.text?.trim().toString()
-            presenter.registerUser(name,pass,ape,phone,email)
+            presenter.registerUser(name,pass,email)
         }
 
         btnImag.setOnClickListener {
@@ -151,13 +141,9 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
     override fun registerError() {
         edtName.setText("")
         edtPass.setText("")
-        edtApe.setText("")
-        edtPhone.setText("")
         edtEmail.setText("")
         edtName.clearFocus()
         edtPass.clearFocus()
-        edtApe.clearFocus()
-        edtPhone.clearFocus()
         edtEmail.clearFocus()
     }
 

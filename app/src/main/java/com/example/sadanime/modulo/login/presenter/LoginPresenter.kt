@@ -43,9 +43,7 @@ class LoginPresenter( private val view: LoginMVP.View ): LoginMVP.Presenter {
                                         if(result.exists()){
                                             preferences.apply {
                                                 this.nombre   = result.child("nombres").value.toString()
-                                                this.phone    = result.child("phone").value.toString()
                                                 this.correo   = result.child("correo").value.toString()
-                                                this.apellido = result.child("apellidos").value.toString()
                                                 this.password = result.child("password").value.toString()
                                             }
                                         }

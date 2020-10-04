@@ -14,22 +14,20 @@ class RegisterPresenter(private val view: RegisterMVP.View) : RegisterMVP.Presen
     private val dataBaseUser = FIREBASE_DB.getReference("Usuario")
     private val TAG  = this.javaClass.toString()
 
-    override fun registerUser(name: String, pass: String, ape: String, phone: String, email: String) {
+    override fun registerUser(name: String, pass: String, email: String) {
         view.showProgres()
         model.registerUser(email, pass)
             .addOnFailureListener { Log.e(TAG, "registerUser: FALLO EN EL REGISTRO  ${it.message}" ) }
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                 val id = FIREBASE_AUTH.currentUser?.uid ?: "0"
-                val user = Usuario(id,name, ape, phone, email, pass)
+                val user = Usuario(id,name, email, pass)
                 dataBaseUser.child(id).setValue(user).addOnCompleteListener {
                     if(it.isSuccessful) {
-                        Log.e(TAG, "registerUser: $name --- $phone  --- $email --- $ape --- $pass" )
+                        Log.e(TAG, "registerUser: $name --- $email --- $pass" )
                         preferences.apply {
                             this.nombre   = name
-                            this.phone    = phone
                             this.correo   = email
-                            this.apellido = ape
                             this.password = pass
                         }
                         view.registerSuccess()
