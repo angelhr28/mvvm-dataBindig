@@ -3,7 +3,112 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/helper/aplication/Constants.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/helper/aplication/Utils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/model/LoginModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/model/pojo/DataUser.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/model/pojo/Usuario.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/model/service/LoginService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/mvp/LoginMVP.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/presenter/LoginPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/view/LoginActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/modules/login/view/SplashActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/java/com/example/proyectsad/root/UnsafeOkHttpClient.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/res/layout/dialog_recovery_password.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/Aca ponlo ctmre/proyect App/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/login/view/LoginActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/model/PrincipalModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/build.gradle">
           <value>
             <set />
           </value>
@@ -28,6 +133,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/java/com/example/proyectsad/helper/COMANDOS DE GIT ">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/java/com/example/proyectsad/helper/COMANDOS DE GIT.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/java/com/example/proyectsad/helper/aplication/Utils.kt">
           <value>
             <set />
@@ -44,6 +159,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/java/com/example/proyectsad/modules/login/view/LoginActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/java/com/example/proyectsad/modules/login/view/RegisterActivity.kt">
           <value>
             <set />
           </value>
@@ -79,6 +199,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../proyectSad/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/helper/application/UnsafeHttpClient.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/modulos/pagos/view/activity/CreateTarjetaActivity.kt">
           <value>
             <set />
           </value>

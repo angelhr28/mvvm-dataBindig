@@ -31,7 +31,6 @@
         app:layout_constraintTop_toBottomOf="@+id/lbl_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:boxBackgroundColor="@color/colorInput"
         style="@style/CustomInputFilledBox"
         >
         <com.google.android.material.textfield.TextInputEditText
@@ -53,7 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:boxBackgroundColor="@color/colorInput"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/CustomInputFilledBox"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_pass"

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "15202693478",
+    "firebase_url": "https://sadanime-555f2.firebaseio.com",
+    "project_id": "sadanime-555f2",
+    "storage_bucket": "sadanime-555f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15202693478:android:0f2f7c5431aa0b971998a7",
+        "android_client_info": {
+          "package_name": "com.example.sadanime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15202693478-0i32tlfitofafknieheqn59hqtuakgg4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sadanime",
+            "certificate_hash": "ada73c9c971710b8af1eb7ae7dcc988defeea622"
+          }
+        },
+        {
+          "client_id": "15202693478-iohmo35ml9jo33uuq1nplhoahvmj4pvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWzQQP7m2rJjxiLOjtA6nJXJYrk3X8x9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15202693478-iohmo35ml9jo33uuq1nplhoahvmj4pvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

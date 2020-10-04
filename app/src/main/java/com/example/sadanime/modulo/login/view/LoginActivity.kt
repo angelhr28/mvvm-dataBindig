@@ -43,15 +43,13 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
         presenter = LoginPresenter(this)
 
         btnLogin.setOnClickListener {
-            Log.e(TAG, "onCreate: llegooooooooooooooooo al click LOGIN" )
             presenter.logIn(edtUser.text?.trim().toString(), edtPass.text?.trim().toString())
         }
 
         lblCreateUser.setOnClickListener {
-            Log.e(TAG, "onCreate: llegooooooooooooooooo al click" )
             val intent = Intent(this,  RegisterUserActivity::class.java)
             startActivity(intent)
-//            finish()
+            finish()
         }
     }
 
