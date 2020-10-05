@@ -120,6 +120,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorCortina"
             android:visibility="gone"
+            android:elevation="8dp"
             app:visible="@{viewmodel.progressVisibility}"
             >
             <ProgressBar
