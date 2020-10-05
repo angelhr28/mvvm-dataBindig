@@ -10,7 +10,7 @@ object Constants {
     val FIREBASE_DB = FirebaseDatabase.getInstance()
     val FIREBASE_STORAGE = FirebaseStorage.getInstance()
 
-    //END POINTS
+//      END POINTS
 
 //    'latestAnimeAdded': '/api/v1/latestAnimes',
 //    'getAnimeOvas': '/api/v1/ovas/[:page]',
@@ -21,7 +21,12 @@ object Constants {
 //    'getAnimeVideoByServer': '/api/v1/video/[:id]/[:chapter]',
 //    'schedule': '/api/v1/schedule/[:day]'
 
-    const val ROOT_LOCAL  = "http://192.168.1.17:3000/"
+    val IS_REMOTE = true
+
+    val ROOT_LOCAL  = "http://192.168.1.17:3000/"
+    val ROOT_REMOTE = "https://legios-anime.herokuapp.com"
+    val ROOT = if (IS_REMOTE) ROOT_REMOTE else ROOT_LOCAL
+
     const val API_GENERAL = "api/v1/"
 
     const val LASTER_ANIME   = "latestAnimes"

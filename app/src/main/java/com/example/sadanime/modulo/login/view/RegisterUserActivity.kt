@@ -5,85 +5,54 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.webkit.MimeTypeMap
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.sadanime.R
-import com.example.sadanime.modulo.login.mvp.RegisterMVP
-import com.example.sadanime.modulo.login.presenter.RegisterPresenter
-import com.example.sadanime.modulo.principal.view.PrincipalActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_register_user.*
+import com.example.sadanime.databinding.ActivityRegisterUserBinding
 import com.example.sadanime.helper.application.Constants.FIREBASE_STORAGE
+import com.example.sadanime.helper.desing.CircleTransform
+import com.example.sadanime.helper.setCircularImage
+import com.example.sadanime.modulo.login.viewModel.RegisterListener
+import com.example.sadanime.modulo.login.viewModel.RegisterViewModel
+import com.example.sadanime.modulo.principal.view.PrincipalActivity
+import com.example.sadanime.root.ctx
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 
 
-class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
+class RegisterUserActivity : AppCompatActivity(), RegisterListener {
 
-    private val TAG  = this.javaClass.toString()
-    private lateinit var contEdtName  : TextInputLayout
-    private lateinit var contEdtEmail : TextInputLayout
-    private lateinit var contEdtPass  : TextInputLayout
-    private lateinit var edtName      : TextInputEditText
-    private lateinit var edtEmail     : TextInputEditText
-    private lateinit var edtPass      : TextInputEditText
-    private lateinit var btnImag      : FloatingActionButton
-    private lateinit var imagPhoto    : ImageView
-    private lateinit var btnRegist    : Button
-    private lateinit var presenter    : RegisterMVP.Presenter
-    private lateinit var strorageRef  : StorageReference
-    private var uriImage: Uri? = null
-    val strorageRefP = FIREBASE_STORAGE.getReference("images")
+    private val TAG = this.javaClass.toString()
+    private var uriImage     : Uri? = null
+    private val strorageRefP : StorageReference= FIREBASE_STORAGE.getReference("images")
+
+    private lateinit var _viewModel : RegisterViewModel
+    private lateinit var binding    : ActivityRegisterUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_user)
+        binding = ActivityRegisterUserBinding.inflate(layoutInflater)
+        binding.apply {
+            setContentView(rootRegister)
+            _viewModel = ViewModelProvider(this@RegisterUserActivity).get()
+            _viewModel.listener = this@RegisterUserActivity
+            viewmodel = _viewModel
+            lifecycleOwner = this@RegisterUserActivity
 
-        contEdtName  = cont_edt_name_user
-        contEdtEmail = cont_edt_email_user
-        contEdtPass  = cont_edt_pass_user
-        edtName      = edt_name_user
-        edtEmail     = edt_email_user
-        edtPass      = edt_pass_user
-        btnRegist    = btn_register
-        btnImag      = btn_add_img
-        imagPhoto    = img_foto_regist
+            Picasso.get()
+                .load(R.drawable.empty_user)
+                .transform(CircleTransform())
+                .into(binding.imgFotoRegist)
 
-        presenter = RegisterPresenter(this)
-        strorageRef = FIREBASE_STORAGE.reference
-        btnRegist.setOnClickListener {
-            val name   = edtName.text?.trim().toString()
-            val pass   = edtPass.text?.trim().toString()
-            val email  = edtEmail.text?.trim().toString()
-            presenter.registerUser(name,pass,email)
+            btnAddImg.setOnClickListener {
+                fileChooser()
+            }
         }
-
-        btnImag.setOnClickListener {
-            fileChooser()
-        }
-
     }
 
-
-    fun getExtension (uri: Uri): String? {
-        val cr = contentResolver
-        val mimeTypeMap = MimeTypeMap.getSingleton()
-        return  mimeTypeMap.getMimeTypeFromExtension(cr.getType(uri))
-    }
-    fun getMimeType(url: String?): String? {
-        var type: String? = null
-        val extension = MimeTypeMap.getFileExtensionFromUrl(url)
-        if (extension != null) {
-            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
-        }
-        return type
-    }
     private fun fileUploader() {
-//        Log.e(TAG,"meraa :: ${getExtension(uriImage)}")
         val ref = strorageRefP.child("${System.currentTimeMillis()}_${(0..10000).random()}.jpeg"  )
 
         uriImage?.let {
@@ -93,10 +62,12 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
                 }
                 .addOnSuccessListener { taskSnapshot -> // Get a URL to the uploaded content
                     val uri = taskSnapshot.storage.downloadUrl
-                    while (!uri.isComplete){} //// todos se corto
-                    val url = uri.result
-                    Log.e(TAG,"url $url")
-                    showToask("se subio revisa prro :v")
+                    if (uri.isComplete){
+//                        while (!uri.isComplete){} //// todos se corto
+                        val url = uri.result
+                        Log.e(TAG,"url $url")
+                        showToask("se subio revisa prro :v")
+                    }
                 }
         }
     }
@@ -115,16 +86,15 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
         if(requestCode == 1 && resultCode == Activity.RESULT_OK && data != null && data.data != null){
             data.data?.let {
                 uriImage = it
-                imagPhoto.setImageURI(uriImage)
+                Picasso.get()
+                    .load(uriImage)
+                    .placeholder(setCircularImage(ctx, R.drawable.empty_user))
+                    .error(setCircularImage(ctx, R.drawable.empty_user))
+                    .transform(CircleTransform())
+                    .into(binding.imgFotoRegist)
             }
 
         }
-    }
-
-    override fun showProgres() {
-    }
-
-    override fun hideProgres() {
     }
 
     override fun showToask(message: String) {
@@ -139,12 +109,14 @@ class RegisterUserActivity : AppCompatActivity(), RegisterMVP.View {
     }
 
     override fun registerError() {
-        edtName.setText("")
-        edtPass.setText("")
-        edtEmail.setText("")
-        edtName.clearFocus()
-        edtPass.clearFocus()
-        edtEmail.clearFocus()
+        binding.apply {
+            edtNameUser.setText("")
+            edtPassUser.setText("")
+            edtEmailUser.setText("")
+            edtNameUser.clearFocus()
+            edtPassUser.clearFocus()
+            edtEmailUser.clearFocus()
+        }
     }
 
 

@@ -1,61 +1,43 @@
 package com.example.sadanime.modulo.login.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import com.example.sadanime.R
-import com.example.sadanime.modulo.login.mvp.LoginMVP
-import com.example.sadanime.modulo.login.presenter.LoginPresenter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
+import com.example.sadanime.databinding.ActivityLoginBinding
+import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
+import com.example.sadanime.modulo.login.viewModel.LoginListener
+import com.example.sadanime.modulo.login.viewModel.LoginViewModel
 import com.example.sadanime.modulo.principal.view.PrincipalActivity
 import com.example.sadanime.root.UnsafeOkHttpClient
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.activity_login.*
-import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 
-class LoginActivity : AppCompatActivity(), LoginMVP.View {
+class LoginActivity : AppCompatActivity(), LoginListener {
 
     private val TAG = this::class.java.name
-    private lateinit var contEdtUser   : TextInputLayout
-    private lateinit var contEdtPass   : TextInputLayout
-    private lateinit var edtUser       : TextInputEditText
-    private lateinit var edtPass       : TextInputEditText
-    private lateinit var btnLogin      : Button
-    private lateinit var lblCreateUser : TextView
-    private lateinit var presenter     : LoginPresenter
+    private lateinit var _viewModel    : LoginViewModel
+    private lateinit var binding       : ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         UnsafeOkHttpClient.initializeSSLContext(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding.apply {
+            setContentView(rootLogin)
+            _viewModel = ViewModelProvider(this@LoginActivity).get()
+            _viewModel.listener = this@LoginActivity
+            viewmodel = _viewModel
+            lifecycleOwner = this@LoginActivity
 
-        contEdtUser   = cont_edt_user
-        edtUser       = edt_user
-        contEdtPass   = cont_edt_pass
-        edtPass       = edt_pass
-        btnLogin      = btn_login
-        lblCreateUser = lbl_create_user
-
-        presenter = LoginPresenter(this)
-
-        btnLogin.setOnClickListener {
-            presenter.logIn(edtUser.text?.trim().toString(), edtPass.text?.trim().toString())
+            lblCreateUser.setOnClickListener {
+                val intent = Intent(this@LoginActivity,  RegisterUserActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
-        lblCreateUser.setOnClickListener {
-            val intent = Intent(this,  RegisterUserActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
-
-    override fun showProgres() {}
-
-    override fun hideProgres() {}
 
     override fun showToask(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()}
@@ -67,10 +49,12 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View {
     }
 
     override fun logInError() {
-        edtUser.setText("")
-        edtPass.setText("")
-        edtUser.clearFocus()
-        edtPass.clearFocus()
+        binding.apply {
+            edtUser.setText("")
+            edtPass.setText("")
+            edtUser.clearFocus()
+            edtPass.clearFocus()
+        }
     }
 
     override fun onStart() {

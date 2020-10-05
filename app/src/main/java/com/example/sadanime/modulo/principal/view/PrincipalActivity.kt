@@ -19,10 +19,6 @@ class PrincipalActivity : AppCompatActivity(), PrincipalMVP.View {
 
     private val TAG = this::class.java.name
 
-    private var lblName     : TextView? = null
-    private var lblApellido : TextView? = null
-    private var lblCorreo   : TextView? = null
-    private var lblPhone    : TextView? = null
     private var btnSingout  : Button?   = null
     private var presenter   : PrincipalMVP.Presenter? = null
 
@@ -32,16 +28,7 @@ class PrincipalActivity : AppCompatActivity(), PrincipalMVP.View {
 
         presenter = PrincipalPresenter(this)
 
-        lblName     = lbl_name
-        lblApellido = lbl_apellido
-        lblCorreo   = lbl_correo
-        lblPhone    = lbl_phone
         btnSingout  = btn_singout
-
-        lblName?.text     = preferences.nombre
-        lblApellido?.text = preferences.apellido
-        lblCorreo?.text   = preferences.correo
-        lblPhone?.text    = preferences.phone
 
         btnSingout?.setOnClickListener {
             FIREBASE_AUTH.signOut()
