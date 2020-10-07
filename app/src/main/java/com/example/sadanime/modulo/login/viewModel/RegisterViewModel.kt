@@ -1,6 +1,7 @@
 package com.example.sadanime.modulo.login.viewModel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +19,8 @@ class RegisterViewModel: ViewModel() {
     var password: String? = null
 
     lateinit var listener: RegisterListener
-    val progressVisibility = MutableLiveData<Boolean>()
+    private val _progressVisibility = MutableLiveData<Boolean>()
+    val progressVisibility: LiveData<Boolean> get() = _progressVisibility
 
     private val model = RegisterModel()
     private val dataBaseUser = Constants.FIREBASE_DB.getReference("Usuario")
@@ -41,7 +43,7 @@ class RegisterViewModel: ViewModel() {
                 return@launch
             }
 
-            progressVisibility.value = true
+            _progressVisibility.value = true
             model.registerUser(email, pass)
                 .addOnFailureListener { Log.e(TAG, "registerUser: FALLO EN EL REGISTRO  ${it.message}" ) }
                 .addOnCompleteListener { task ->
@@ -61,12 +63,12 @@ class RegisterViewModel: ViewModel() {
                                 listener.registerError()
                                 listener.showToask("fallo al insertar el usuario")
                             }
-                            progressVisibility.value = false
+                            _progressVisibility.value = false
                         }
                     } else {
                         listener.registerError()
                         listener.showToask("Fallo en conexion a firebase.")
-                        progressVisibility.value = false
+                        _progressVisibility.value = false
                     }
                 }
 

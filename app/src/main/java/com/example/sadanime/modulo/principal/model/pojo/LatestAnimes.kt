@@ -3,7 +3,6 @@ package com.example.sadanime.modulo.principal.model.pojo
 import com.google.gson.annotations.SerializedName
 
 data class LatestAnimes(
-
 	@field:SerializedName("animes")
 	val animes: List<AnimesItem?>? = null
 )

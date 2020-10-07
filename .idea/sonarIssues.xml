@@ -98,7 +98,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/helper/ErrorResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/helper/application/Constants.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/helper/desing/ButtomIconView.kt">
           <value>
             <set />
           </value>
@@ -178,7 +188,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/model/pojo/LatestAnimes.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/model/service/LastAnimesService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/view/PrincipalActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/viewModel/PrincipalListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/viewModel/PrincipalViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/root/UnsafeOkHttpClient.kt">
           <value>
             <set />
           </value>
@@ -193,7 +228,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_register_user.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/component_btn_icon.xml">
           <value>
             <set />
           </value>
@@ -214,6 +259,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../probelalkhan-android-mvvm-architecture-14a19cf/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../probelalkhan-android-mvvm-architecture-14a19cf/app/src/main/java/net/simplifiedcoding/mvvmsampleapp/data/network/MyApi.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../probelalkhan-android-mvvm-architecture-14a19cf/build.gradle">
           <value>
             <set />
           </value>
@@ -313,7 +373,22 @@
             <set />
           </value>
         </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/helper/design/componentes/CompButtomIcon.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/modulos/pagos/view/activity/CreateTarjetaActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/res/layout/component_btn_icon.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/res/values/attrs.xml">
           <value>
             <set />
           </value>

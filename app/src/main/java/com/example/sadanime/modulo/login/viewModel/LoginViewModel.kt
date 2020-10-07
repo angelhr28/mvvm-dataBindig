@@ -1,6 +1,7 @@
 package com.example.sadanime.modulo.login.viewModel
 
 import android.view.View
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,7 +21,8 @@ class LoginViewModel: ViewModel() {
 
     lateinit var listener: LoginListener
     private val model = LoginModel()
-    val progressVisibility = MutableLiveData<Boolean>()
+    private val _progressVisibility = MutableLiveData<Boolean>()
+    val progressVisibility: LiveData <Boolean> get() = _progressVisibility
 
     fun onLoginButtomClick(email :String, password: String ){
         viewModelScope.launch {
@@ -34,7 +36,7 @@ class LoginViewModel: ViewModel() {
                 return@launch
             }
 
-            progressVisibility.value = true
+            _progressVisibility.value = true
 
             model.logIn(email, password).addOnCompleteListener {
                 if(it.isSuccessful){
@@ -46,7 +48,7 @@ class LoginViewModel: ViewModel() {
                             override fun onCancelled(p0: DatabaseError) {
                                 listener.logInError()
                                 listener.showToask("El usuario no existe.")
-                                progressVisibility.value = false
+                                _progressVisibility.value = false
                             }
                             override fun onDataChange(result: DataSnapshot) {
                                 if(result.exists()){
@@ -57,14 +59,14 @@ class LoginViewModel: ViewModel() {
                                     }
                                 }
                                 listener.logInSuccess()
-                                progressVisibility.value = false
+                                _progressVisibility.value = false
                             }
                         }
                         )
                 } else {
                     listener.logInError()
                     listener.showToask("Usuarion o contraseña incorrecta .")
-                    progressVisibility.value = false
+                    _progressVisibility.value = false
                 }
             }
         }

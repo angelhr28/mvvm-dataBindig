@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ErrorResponse (
     @field:SerializedName("msj")
-    val msj : String? = null,
+    var msj : String? = null,
     @field:SerializedName("status")
-    val status : Int? = 0
+    var status : Int? = 0
 )

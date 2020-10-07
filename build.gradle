@@ -30,7 +30,7 @@ ext{
     rxjava2_version = "2.2.9"
     rxandroid_version = "2.0.2"
     rxkotlin_version = "2.3.0"
-    retrofit2_version = "2.4.0"
+    retrofit2_version = "2.9.0"
     carouselLayoutManager_version = "1.2.4"
     butter_knife_version = "8.8.1"
     lifecycle_version = "2.0.0"

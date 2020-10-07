@@ -8,7 +8,6 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.example.sadanime.root.UnsafeOkHttpClient
 import com.example.sadanime.helper.application.Constants
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 //funciones que sera utiles en toda la app a futuro
@@ -19,7 +18,7 @@ fun getConexionRetrofit(url_base: String = Constants.ROOT): Retrofit {
         .baseUrl(url_base)
         .client(okHttpClient.build())
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 }
 
