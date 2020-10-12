@@ -2,9 +2,13 @@ package com.example.sadanime.helper
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.databinding.DataBindingUtil
 import com.example.sadanime.root.UnsafeOkHttpClient
 import com.example.sadanime.helper.application.Constants
 import retrofit2.Retrofit

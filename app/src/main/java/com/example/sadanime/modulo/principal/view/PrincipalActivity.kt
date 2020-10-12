@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
+import com.ethanhua.skeleton.Skeleton
+import com.example.sadanime.R
 import com.example.sadanime.databinding.ActivityPrincipalBinding
 import com.example.sadanime.modulo.login.view.LoginActivity
 import com.example.sadanime.modulo.principal.model.pojo.AnimesItem
@@ -14,12 +18,15 @@ import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 import com.example.sadanime.modulo.principal.viewModel.PrincipalListener
 import com.example.sadanime.modulo.principal.viewModel.PrincipalViewModel
 
-class PrincipalActivity : AppCompatActivity(), PrincipalListener {
+class PrincipalActivity : AppCompatActivity(), PrincipalListener,
+    AnimesAdapter.OnCardClickListener {
 
     private val TAG = this::class.java.name
 
-    private lateinit var _viewModel    : PrincipalViewModel
-    private lateinit var binding       : ActivityPrincipalBinding
+    private lateinit var _viewModel: PrincipalViewModel
+    private lateinit var binding   : ActivityPrincipalBinding
+    private lateinit var mAdapter  : AnimesAdapter
+    private lateinit var skeleton  : RecyclerViewSkeletonScreen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +36,6 @@ class PrincipalActivity : AppCompatActivity(), PrincipalListener {
             _viewModel = ViewModelProvider(this@PrincipalActivity).get()
             _viewModel.listener = this@PrincipalActivity
             viewmodel = _viewModel
-            _viewModel.getListAnimeEstreno()
 
             lifecycleOwner = this@PrincipalActivity
             btnSingout.setOnClickListener {
@@ -39,13 +45,19 @@ class PrincipalActivity : AppCompatActivity(), PrincipalListener {
                 startActivity(intent)
                 finish()
             }
+            rcvLastAnime.apply {
+                layoutManager = LinearLayoutManager(this@PrincipalActivity)
+                setHasFixedSize(false)
+            }
 
+            _viewModel.getListAnimeEstreno()
         }
     }
 
     override fun getListAnimeEstreno(animes: List<AnimesItem?>?) {
-
-        Log.e(TAG, "getListAnimeEstreno: $animes" )
+//        Log.e(TAG, "getListAnimeEstreno: $animes" )
+        mAdapter = AnimesAdapter(animes, this@PrincipalActivity)
+        binding.rcvLastAnime.adapter =  mAdapter
     }
 
     override fun showEmpty(msj: String) {
@@ -57,10 +69,21 @@ class PrincipalActivity : AppCompatActivity(), PrincipalListener {
     }
 
     override fun showSkeleton() {
-
+        skeleton =  Skeleton.bind(binding.rcvLastAnime)
+            .shimmer(true)
+            .angle(20)
+            .color(R.color.colorShimmerSkeleton)
+            .duration(1200)
+            .load ( R.layout.skeleton_item_anime)
+            .show()
     }
 
     override fun hideSkeleton() {
+        skeleton.hide()
+    }
+
+    override fun onAnimeSelect(data: AnimesItem) {
+
 
     }
 }

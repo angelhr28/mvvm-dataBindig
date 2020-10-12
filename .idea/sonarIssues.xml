@@ -198,7 +198,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/view/AnimesAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/view/PrincipalActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/modulo/principal/view/animesAdapter.kt">
           <value>
             <set />
           </value>
@@ -214,6 +224,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/sadanime/root/UnsafeOkHttpClient.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/cuadrado_card.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/cuadrado_skeleton.xml">
           <value>
             <set />
           </value>
@@ -239,6 +259,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/component_btn_icon.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_animes.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/skeleton_item_anime.xml">
           <value>
             <set />
           </value>
@@ -374,6 +404,11 @@
           </value>
         </entry>
         <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/helper/design/componentes/CompButtomIcon.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/proyectos/proyectoSmiledu/smiledu_android/app/src/main/java/pe/softhy/smiledu/modulos/asistencia_colab/view/adapter/ColabAsistAdapter.kt">
           <value>
             <set />
           </value>

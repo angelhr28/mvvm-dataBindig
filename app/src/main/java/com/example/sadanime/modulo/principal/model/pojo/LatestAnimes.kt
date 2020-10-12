@@ -37,7 +37,7 @@ data class AnimesItem(
 	val type: String? = null,
 
 	@field:SerializedName("poster")
-	val poster: String? = null,
+	val poster: String? = "https://cdn.jkanime.net/assets/images/animes/image/kamisama-ni-natta-hi.jpg",
 
 	@field:SerializedName("episodes")
 	val episodes: String? = null

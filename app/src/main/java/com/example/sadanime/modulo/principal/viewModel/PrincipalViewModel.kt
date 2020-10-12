@@ -28,16 +28,12 @@ class PrincipalViewModel : ViewModel(){
         viewModelScope.launch {
             try {
                 val response = model.getListAnimeEstreno()
-                Log.e(TAG, "getListAnimeEstreno: ${response.animes}" )
-                response?.let {
-                    listener.getListAnimeEstreno(it.animes)
+                response.let {
                     listener.hideSkeleton()
+                    listener.getListAnimeEstreno(it.animes)
                     return@launch
                 }
-                listener.hideSkeleton()
-                listener.hideEmpty()
             } catch (e: LastAnimesService.ApiException) {
-                Log.e(TAG, "getListAnimeEstreno: $e" )
                 listener.hideSkeleton()
                 listener.hideEmpty()
             }

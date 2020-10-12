@@ -7,4 +7,8 @@
     <color name="colorCortina">#99FFFFFF</color>
     <color name="colorInput">#79FFFFFF</color>
     <color name="colorTransparente">#00FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorShimmerSkeleton">#ffffff</color>
+    <color name="colorSkeleton">#efefef</color>
+
 </resources>
