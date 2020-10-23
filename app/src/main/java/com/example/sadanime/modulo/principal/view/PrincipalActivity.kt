@@ -37,7 +37,6 @@ class PrincipalActivity : AppCompatActivity(), PrincipalListener,
             _viewModel.listener = this@PrincipalActivity
             viewmodel = _viewModel
 
-            lifecycleOwner = this@PrincipalActivity
             btnSingout.setOnClickListener {
                 FIREBASE_AUTH.signOut()
                 preferences.clear()
@@ -45,19 +44,23 @@ class PrincipalActivity : AppCompatActivity(), PrincipalListener,
                 startActivity(intent)
                 finish()
             }
+            mAdapter = AnimesAdapter(this@PrincipalActivity)
+
             rcvLastAnime.apply {
                 layoutManager = LinearLayoutManager(this@PrincipalActivity)
                 setHasFixedSize(false)
             }
 
             _viewModel.getListAnimeEstreno()
+            lifecycleOwner = this@PrincipalActivity
         }
     }
 
     override fun getListAnimeEstreno(animes: List<AnimesItem?>?) {
-//        Log.e(TAG, "getListAnimeEstreno: $animes" )
-        mAdapter = AnimesAdapter(animes, this@PrincipalActivity)
+//        Log.e(TAG, "getListAnimeEstreno: $animes")
+//        mAdapter = AnimesAdapter( animes,  this@PrincipalActivity)
         binding.rcvLastAnime.adapter =  mAdapter
+        mAdapter.setData(animes)
     }
 
     override fun showEmpty(msj: String) {
