@@ -24,21 +24,21 @@ class LoginViewModel: ViewModel() {
     private val _progressVisibility = MutableLiveData<Boolean>()
     val progressVisibility: LiveData <Boolean> get() = _progressVisibility
 
-    fun onLoginButtomClick(email :String, password: String ){
+    fun onLoginButtomClick(email :String?, password: String? ){
         viewModelScope.launch {
-            if (isNullOrEmpty(email)){
+            if (isNullOrEmpty(email ?: "")){
                 listener.showToask("Ingresa un usuario.")
                 return@launch
             }
 
-            if (isNullOrEmpty(password)){
+            if (isNullOrEmpty(password ?: "")){
                 listener.showToask("Ingresa una contraseña.")
                 return@launch
             }
 
             _progressVisibility.value = true
 
-            model.logIn(email, password).addOnCompleteListener {
+            model.logIn(email ?: "", password ?: "").addOnCompleteListener {
                 if(it.isSuccessful){
                     val dataBaseUser = Constants.FIREBASE_DB.reference
                     preferences.deviceToken = Constants.FIREBASE_AUTH.currentUser?.uid

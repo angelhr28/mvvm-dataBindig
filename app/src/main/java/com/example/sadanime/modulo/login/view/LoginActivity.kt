@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity(), LoginListener {
             lblCreateUser.setOnClickListener {
                 val intent = Intent(this@LoginActivity,  RegisterUserActivity::class.java)
                 startActivity(intent)
-                finish()
+//                finish()
             }
         }
 
