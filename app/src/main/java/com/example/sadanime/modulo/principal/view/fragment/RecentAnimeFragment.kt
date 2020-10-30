@@ -32,6 +32,9 @@ class RecentAnimeFragment : Fragment() {
             container,
             false
         )
+
+        mAdapter = AnimesAdapter()
+
         binding.apply {
             viewmodel = _viewModel
             _viewModel.getListAnimeEstreno()
@@ -39,15 +42,9 @@ class RecentAnimeFragment : Fragment() {
             rcvLastAnime.apply {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(false)
-                mAdapter = AnimesAdapter()
             }
 
-            _viewModel.latestAnimes.observe(viewLifecycleOwner, {
-                Log.e("TAG", "adapter: $it" )
-                binding.rcvLastAnime.adapter = mAdapter
-                mAdapter.setData(it)
-            }
-            )
+
 
             _viewModel.isSkeleton.observe(viewLifecycleOwner, {
                 Log.e("TAG", "skeleton: $it")
@@ -76,12 +73,18 @@ class RecentAnimeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         _viewModel = ViewModelProviders.of(this).get(PrincipalViewModel::class.java)
 
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         _viewModel = ViewModelProviders.of(this).get(PrincipalViewModel::class.java)
+        _viewModel.latestAnimes.observe(viewLifecycleOwner, {
+            Log.e("TAG", "adapter: $it" )
+            binding.rcvLastAnime.adapter = mAdapter
+            mAdapter.setData(it)
+        }
+        )
+
     }
 
     companion object {
