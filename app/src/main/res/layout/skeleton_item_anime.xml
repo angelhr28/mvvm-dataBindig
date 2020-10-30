@@ -16,8 +16,8 @@
 
         <View
             android:id="@+id/img_poster"
-            android:layout_width="90dp"
-            android:layout_height="116dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:background="@drawable/cuadrado_skeleton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -83,13 +83,15 @@
                 android:text="@string/ver_capitulo"
                 android:textColor="@color/colorBlack"
                 android:layout_weight="1"
-                android:textSize="16sp"
+                android:textSize="12dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:textAlignment="center"
+                android:layout_gravity="center"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:targetApi="m" />
 
@@ -98,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/m_s_informaci_n"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorBlack"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
@@ -107,6 +109,8 @@
                 android:paddingBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:textAlignment="center"
+                android:layout_gravity="center"
                 android:foreground="?android:attr/selectableItemBackground"
                 tools:targetApi="m" />
 

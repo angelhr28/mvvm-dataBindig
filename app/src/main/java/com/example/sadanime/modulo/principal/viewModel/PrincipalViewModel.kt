@@ -18,29 +18,38 @@ class PrincipalViewModel : ViewModel(){
     private val TAG = this::class.java.name
     private var model = PrincipalModel()
 
-    private val _latestAnimes = MutableLiveData<List<AnimesItem?>>()
-    val latestAnimes: LiveData<List<AnimesItem?>> get() = _latestAnimes
-    lateinit var listener: PrincipalListener
+    private val _latestAnimes = MutableLiveData<List<AnimesItem?>?>()
+    val latestAnimes: LiveData<List<AnimesItem?>?> get() = _latestAnimes
+
+    private val _isSkeleton = MutableLiveData<Boolean>()
+    val isSkeleton: LiveData<Boolean> get() = _isSkeleton
+
+    private val _isEmpty = MutableLiveData<Boolean>()
+    val isEmpty: LiveData<Boolean> get() = _isEmpty
+
+    private val _snackBar = MutableLiveData<String>()
+    val snackBar: LiveData<String> get() = _snackBar
 
     fun getListAnimeEstreno() {
 
-        listener.showSkeleton()
+        _isSkeleton.value = true
         viewModelScope.launch {
             try {
                 val response = model.getListAnimeEstreno()
                 response.let {
-                    listener.hideSkeleton()
-                    listener.getListAnimeEstreno(it.animes)
+                    if (it.animes?.count() ?: 0 > 0){
+                        _latestAnimes.value = it.animes
+                        _isSkeleton.value = false
+                    } else {
+                        _isSkeleton.value = true
+                    }
                     return@launch
                 }
             } catch (e: LastAnimesService.ApiException) {
-                listener.hideSkeleton()
-                listener.hideEmpty()
+                _isSkeleton.value = false
+                _isEmpty.value = true
+                _snackBar.value = e.message ?: "Hubo un error"
             }
         }
     }
-
-
-
-
 }

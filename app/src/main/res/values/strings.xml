@@ -2,10 +2,11 @@
     <string name="app_name">LegionS Anime</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="title_activity_maps">Map</string>
-    <string name="registrar">Registrar</string>
+    <string name="registrar">Registrate</string>
     <string name="msj_empty">No se encontraron animes</string>
     <string name="m_s_informaci_n">Más Información</string>
     <string name="ver_capitulo">Ver Capitulo</string>
     <string name="poster">Poster</string>
     <string name="visto">Visto</string>
+    <string name="registrar_v2">Registrar</string>
 </resources>

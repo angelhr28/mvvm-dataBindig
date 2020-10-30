@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nv_dashboard"
+        android:icon="@drawable/ic_recent"
+        android:title="Recientes"
+        />
+
+    <item
+        android:id="@+id/nv_mensajes"
+        android:icon="@drawable/ic_favorite"
+        android:title="Favoritos"
+        />
+
+    <item
+        android:id="@+id/nv_calendario"
+        android:icon="@drawable/ic_calendar"
+        android:title="Calendario"
+        />
+
+    <item
+        android:id="@+id/nv_account"
+        android:icon="@drawable/ic_account"
+        android:title="Perfil"
+        />
+
+</menu>

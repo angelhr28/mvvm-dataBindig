@@ -36,6 +36,8 @@
             android:layout_height="120dp"
             android:layout_width="120dp"
             android:layout_marginTop="24dp"
+            image="=@{viewModel.}"
+            android:background="@drawable/empty_user"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbl_title_regist" />
@@ -79,7 +81,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    style="@style/CustomInputFilledBox">
+                    style="@style/ContenInputEditext">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_name_user"
@@ -92,7 +94,7 @@
                         android:textSize="17dp"
                         android:paddingBottom="16dp"
                         android:gravity="center_vertical"
-                        style="@style/CustomEditTextFilledBoxDense" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,7 +106,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/cont_edt_name_user"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    style="@style/CustomInputFilledBox">
+                    style="@style/ContenInputEditext">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_email_user"
@@ -116,8 +118,7 @@
                         android:text="@={viewmodel.email}"
                         android:textSize="17dp"
                         android:paddingBottom="16dp"
-                        android:gravity="center_vertical"
-                        style="@style/CustomEditTextFilledBoxDense" />
+                        android:gravity="center_vertical"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,7 +131,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/cont_edt_email_user"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    style="@style/CustomInputFilledBox">
+                    style="@style/ContenInputEditext">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_pass_user"
@@ -142,8 +143,7 @@
                         android:maxLength="30"
                         android:textSize="17dp"
                         android:paddingBottom="16dp"
-                        android:gravity="center_vertical"
-                        style="@style/CustomEditTextFilledBoxDense" />
+                        android:gravity="center_vertical"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +156,7 @@
             android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar"
+            android:text="@string/registrar_v2"
             android:layout_marginTop="24dp"
             android:elevation="4dp"
             android:onClick="@{()-> viewmodel.onRegistButtomClick(viewmodel.name, viewmodel.password, viewmodel.email )}"
