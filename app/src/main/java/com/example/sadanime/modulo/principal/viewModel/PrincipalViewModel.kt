@@ -38,8 +38,8 @@ class PrincipalViewModel : ViewModel(){
                 val response = model.getListAnimeEstreno()
                 response.let {
                     if (it.animes?.count() ?: 0 > 0){
-                        _latestAnimes.value = it.animes
                         _isSkeleton.value = false
+                        _latestAnimes.value = it.animes
                     } else {
                         _isSkeleton.value = true
                     }
