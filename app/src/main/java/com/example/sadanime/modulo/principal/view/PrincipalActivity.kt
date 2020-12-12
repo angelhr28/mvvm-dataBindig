@@ -6,16 +6,12 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
-import com.ethanhua.skeleton.RecyclerViewSkeletonScreen
-import com.ethanhua.skeleton.Skeleton
 import com.example.sadanime.R
 import com.example.sadanime.databinding.ActivityPrincipalBinding
 import com.example.sadanime.helper.application.Constants.FIREBASE_AUTH
 import com.example.sadanime.helper.showSimpleSnackbar
 import com.example.sadanime.modulo.login.view.LoginActivity
-import com.example.sadanime.modulo.principal.model.pojo.AnimesItem
 import com.example.sadanime.modulo.principal.view.fragment.RecentAnimeFragment
-import com.example.sadanime.modulo.principal.viewModel.PrincipalListener
 import com.example.sadanime.modulo.principal.viewModel.PrincipalViewModel
 import com.example.sadanime.root.preferences
 import com.google.android.material.bottomnavigation.BottomNavigationView
